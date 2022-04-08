@@ -1,7 +1,10 @@
-I find this resource extremely helpful: https://blog.reviewnb.com/github-jupyter-notebook/
-
 The following is my experience setting up Git and GitHub to use Jupyter Notebook in Mac terminal. 
+
+### Setup
+
+I find this resource extremely helpful: https://blog.reviewnb.com/github-jupyter-notebook/
 (Already installed *MacPorts* to use the `port` command in terminal.)
+
 
 ```console
 Last login: Thu Apr  7 22:42:50 on ttys002
@@ -90,6 +93,99 @@ Writing objects: 100% (3/3), 1.01 KiB | 1.01 MiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
 To https://github.com/peggycheung/Python-for-Finance.git
    01d4bf5..5fe7cea  main -> main
+(base) wenpeizhang@Peggys-MBP Python-for-Finance % 
+
+```
+---
+
+### Use Git to push changes to GitHub
+
+Resources:
+1. https://www.freecodecamp.org/news/pushing-to-github-made-simple-enough-for-poets/
+2. https://stackoverflow.com/questions/24114676/git-error-failed-to-push-some-refs-to-remote
+
+**Initiate Git**
+
+```console
+(base) wenpeizhang@Peggys-MBP ~ % git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /Users/wenpeizhang/.git/
+
+```
+**Locate the repository that I have on my local machine**
+```console
+(base) wenpeizhang@Peggys-MBP ~ % cd /Users/wenpeizhang/Python-for-Finance
+```
+
+**Track any changes made to the folder on your system, since the last commit.**
+```console
+(base) wenpeizhang@Peggys-MBP Python-for-Finance % git add pp_Python_for_Finance_2.ipynb
+```
+
+See Git Status: It shows that pp_Python_for_Finance_2.ipynb has been modified
+```console
+(base) wenpeizhang@Peggys-MBP Python-for-Finance % git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   pp_Python_for_Finance_2.ipynb
+```
+**Prepare the added/tracked changes to the folder on my local machine for pushing to Github and add commit messages/comment**
+```console
+(base) wenpeizhang@Peggys-MBP Python-for-Finance % git commit -m "Completed section 11, 60-69"
+[main cfb9362] Completed section 11, 60-69
+ 1 file changed, 1941 insertions(+), 3 deletions(-)
+```
+**Push changes to GitHub. (Note that the last word in the command master, is not a fixed entry when running git push. It can be replaced with any relevant “branch_name”).**
+```console
+(base) wenpeizhang@Peggys-MBP Python-for-Finance % git push
+```
+**Encountered an error -- this is because the GitHub repo has seen new commits pushed to it and the repository on my local machine is not up to date.**
+```console
+To https://github.com/peggycheung/Python-for-Finance.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/peggycheung/Python-for-Finance.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+**Then we need to first pull then push to update repository folder on our local machine**
+```console
+(base) wenpeizhang@Peggys-MBP Python-for-Finance % git pull --rebase origin main
+From https://github.com/peggycheung/Python-for-Finance
+ * branch            main       -> FETCH_HEAD
+Successfully rebased and updated refs/heads/main.
+(base) wenpeizhang@Peggys-MBP Python-for-Finance % git push origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 10 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 227.21 KiB | 15.15 MiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/peggycheung/Python-for-Finance.git
+   6148c9f..b9e711b  main -> main
+```
+**Check Git status to make sure changes are pushed to Github**
+```console
+(base) wenpeizhang@Peggys-MBP Python-for-Finance % git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
 (base) wenpeizhang@Peggys-MBP Python-for-Finance % 
 
 ```
