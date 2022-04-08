@@ -44,7 +44,7 @@ Continue? [Y/n]: Y
 ? What is your preferred protocol for Git operations? HTTPS
 ? Authenticate Git with your GitHub credentials? Yes
 ? How would you like to authenticate GitHub CLI? Login with a web browser
-! First copy your one-time code: 74CC-03F1
+! First copy your one-time code: 74CC-XXXX
 Press Enter to open github.com in your browser... 
 ✓ Authentication complete.
 - gh config set -h github.com git_protocol https
