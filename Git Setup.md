@@ -5,6 +5,7 @@ The following is my experience setting up Git and GitHub to use Jupyter Notebook
 I find these resources extremely helpful: 
 1. https://blog.reviewnb.com/github-jupyter-notebook/
 2. https://docs.github.com/en/get-started/quickstart/hello-world
+
 (Already installed *MacPorts* to use the `port` command in terminal.)
 
 
