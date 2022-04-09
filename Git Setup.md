@@ -192,3 +192,38 @@ nothing to commit, working tree clean
 (base) wenpeizhang@Peggys-MBP Python-for-Finance % 
 
 ```
+**Push an img folder to Github so it can display the image in jupyter notebook**
+1. Copy and paste the image folder to the corresponding repository folder on the local machine
+
+It is assumed, that you have the following file structure and that you run the jupyter notebook command in the directory where the file example.ipynb (<-- contains the markdown for the image) is stored:
+```
++-- example.ipynb
++-- img
+    +-- picture.png
+```
+In this case, in my `CFA-I` repository folder it is:
+```
++-- Quantitative_Methods.ipynb
++-- img
+    +-- flowchart_select_viz.jpg
+```
+2. Run the following in terminal
+```console
+(base) wenpeizhang@Peggys-MBP CFA-I % git add .      
+(base) wenpeizhang@Peggys-MBP CFA-I % git commit -m "add a img folder"
+[main 169f300] add a img folder
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 .DS_Store
+ create mode 100644 img/.DS_Store
+ create mode 100644 img/flowchart_select_viz.jpg
+(base) wenpeizhang@Peggys-MBP CFA-I % git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 10 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 744.08 KiB | 26.57 MiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To https://github.com/peggycheung/CFA-I.git
+   a8c231a..169f300  main -> main
+```
